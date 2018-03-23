@@ -6,11 +6,12 @@
 #include <fstream>
 #include <stdlib.h>
 #include <time.h>
+#include <cmath>
 #include "Matrix.h"
 
 using namespace std;
 
-Matrix X, W1, H, W2, Y, B1, B2, Y2, dJdB1, dJdW1, dJdB2, dJdW2;
+Matrix X, W1, H, W2, Y, B1, B2, Y2, gradient_B1, gradient_W1, gradient_B2, gradient_W2;
 double learningRate;
 
 int main() {
@@ -19,6 +20,16 @@ int main() {
 double random(double x)
 {
     return (double)(rand() % 10000 + 1)/10000-0.5;
+}
+
+double sigmoid(double x)
+{
+    return 1/(1+exp(-x));
+}
+
+double sigmoidPrime(double x)
+{
+    return exp(-x)/(pow(1+exp(-x), 2));
 }
 
 void init(int inputNeuron, int hiddenNeuron, int outputNeuron, double rate)
@@ -35,6 +46,29 @@ void init(int inputNeuron, int hiddenNeuron, int outputNeuron, double rate)
     B1 = B1.applyFunction(random);
     B2 = B2.applyFunction(random);
 
+}
+
+Matrix computeOutput(vector<double> input)
+{
+    X = Matrix({input});
+    H = X.dot(W1).add(B1).applyFunction(sigmoid);
+    Y = X.dot(W2).add(B2).applyFunction(sigmoid);
+    return Y;
+}
+
+void learn(vector<double> expectedOutput)
+{
+    Y2 = Matrix({expectedOutput});
+
+    gradient_B2 = Y.subtract(Y2).multiply(H.dot(W2).add(B2).applyFunction(sigmoidPrime));
+    gradient_B1 = gradient_B2.dot(W2.transpose().multiply(X.dot(W1).add(B1).applyFunction(sigmoidPrime)));
+    gradient_W2 = H.transpose().dot(gradient_B2);
+    gradient_W1 = H.transpose().dot(gradient_B1);
+
+    W1 = W1.subtract(gradient_W1.multiply(learningRate));
+    W2 = W2.subtract(gradient_W2.multiply(learningRate));
+    B1 = B1.subtract(gradient_B1.multiply(learningRate));
+    B2 = B2.subtract(gradient_B2.multiply(learningRate));
 }
 
 void loadTraining(const char *filename, vector<vector<double> > &input, vector<vector<double> > &output)
