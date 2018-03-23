@@ -22,7 +22,7 @@ public:
     Matrix subtract(Matrix const &m) const;
     Matrix multiply(Matrix const &m) const;
 
-    Matrix dat(Matrix const *m) const;
+    Matrix dot(Matrix const &m) const;
     Matrix transpose() const;
 
     Matrix applyFunction(double (*function)(double)) const;
