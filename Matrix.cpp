@@ -84,7 +84,7 @@ Matrix Matrix::multiply(Matrix const &m) const
 
 Matrix Matrix::dot(Matrix const &m) const
 {
-    assert(m.height==width);
+    assert(width==m.height);
 
     int mwidth = m.width;
     double w=0;

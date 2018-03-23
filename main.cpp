@@ -14,9 +14,7 @@ using namespace std;
 Matrix X, W1, H, W2, Y, B1, B2, Y2, gradient_B1, gradient_W1, gradient_B2, gradient_W2;
 double learningRate;
 
-int main() {
-    return 0;
-}
+
 double random(double x)
 {
     return (double)(rand() % 10000 + 1)/10000-0.5;
@@ -77,15 +75,16 @@ void loadTraining(const char *filename, vector<vector<double> > &input, vector<v
     input.resize(trainingSize);
     output.resize(trainingSize);
 
-    ifstream (file);
-    if (file){
+    ifstream file(filename);
+    if(file)
+    {
         string line;
         int n;
 
-        for (int i=0; i<trainingSize; i++){
-            for (int h=0; h<32; h++){
+        for (int i=0 ; i<trainingSize ; i++) {
+            for (int h=0 ; h<32 ; h++) {
                 getline(file, line);
-                for (int w=0l w<32; w++){
+                for (int w=0 ; w<32 ; w++) {
                     input[i].push_back(atoi(line.substr(w,1).c_str()));
                 }
             }
@@ -96,6 +95,53 @@ void loadTraining(const char *filename, vector<vector<double> > &input, vector<v
         }
     }
     file.close();
+}
+
+double stepFunction(double x)
+{
+    if(x>0.9){
+        return 1.0;
+    }
+    if(x<0.1){
+        return 0.0;
+    }
+    return x;
+}
+
+int main(int argc, char *argv[])
+{
+    srand (time(NULL));
+
+    double learningRate = 0.7;
+    int trainingIterations = 30;
+
+    vector<vector<double>> inputVector;
+    vector<vector<double>> outputVector;
+
+    loadTraining("data/training.data", inputVector, outputVector);
+
+    init(1024, 15, 10, learningRate);
+
+    for (int i=0; i<trainingIterations; i++){
+        for (int j=0; j<inputVector.size()-10; j++){
+            computeOutput(inputVector[j]);
+            learn(outputVector[j]);
+        }
+        cout << "Iteration:" << i+1 << endl;
+    }
+
+    cout << endl << "expected output : actual output" << endl;
+    for (int i=inputVector.size()-10 ; i<inputVector.size() ; i++) // testing on last 10 examples
+    {
+        for (int j=0 ; j<10 ; j++)
+        {
+            cout << outputVector[i][j] << " ";
+        }
+        cout << ": " << computeOutput(inputVector[i]).applyFunction(stepFunction) << endl;
+    }
+
+
+
 }
 
 

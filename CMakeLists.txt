@@ -3,4 +3,4 @@ project(NN)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(NN main.cpp Matrix.h Matrix.cpp)
+add_executable(NN main.cpp Matrix.h Matrix.cpp )
