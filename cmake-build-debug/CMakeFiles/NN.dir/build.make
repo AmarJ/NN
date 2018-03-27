@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2017.3.4\bin\cmake\bin\cmake.exe" -E remo
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\amar\Documents\workspace\NN
+CMAKE_SOURCE_DIR = "C:\Users\Amar Jasarbasic\workspace\NN"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\amar\Documents\workspace\NN\cmake-build-debug
+CMAKE_BINARY_DIR = "C:\Users\Amar Jasarbasic\workspace\NN\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/NN.dir/depend.make
@@ -58,16 +58,16 @@ include CMakeFiles/NN.dir/flags.make
 
 CMakeFiles/NN.dir/main.cpp.obj: CMakeFiles/NN.dir/flags.make
 CMakeFiles/NN.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\amar\Documents\workspace\NN\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NN.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NN.dir\main.cpp.obj -c C:\Users\amar\Documents\workspace\NN\main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Amar Jasarbasic\workspace\NN\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/NN.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NN.dir\main.cpp.obj -c "C:\Users\Amar Jasarbasic\workspace\NN\main.cpp"
 
 CMakeFiles/NN.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\amar\Documents\workspace\NN\main.cpp > CMakeFiles\NN.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Amar Jasarbasic\workspace\NN\main.cpp" > CMakeFiles\NN.dir\main.cpp.i
 
 CMakeFiles/NN.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amar\Documents\workspace\NN\main.cpp -o CMakeFiles\NN.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Amar Jasarbasic\workspace\NN\main.cpp" -o CMakeFiles\NN.dir\main.cpp.s
 
 CMakeFiles/NN.dir/main.cpp.obj.requires:
 
@@ -82,16 +82,16 @@ CMakeFiles/NN.dir/main.cpp.obj.provides.build: CMakeFiles/NN.dir/main.cpp.obj
 
 CMakeFiles/NN.dir/Matrix.cpp.obj: CMakeFiles/NN.dir/flags.make
 CMakeFiles/NN.dir/Matrix.cpp.obj: ../Matrix.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\amar\Documents\workspace\NN\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NN.dir/Matrix.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NN.dir\Matrix.cpp.obj -c C:\Users\amar\Documents\workspace\NN\Matrix.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Amar Jasarbasic\workspace\NN\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/NN.dir/Matrix.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\NN.dir\Matrix.cpp.obj -c "C:\Users\Amar Jasarbasic\workspace\NN\Matrix.cpp"
 
 CMakeFiles/NN.dir/Matrix.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/NN.dir/Matrix.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\amar\Documents\workspace\NN\Matrix.cpp > CMakeFiles\NN.dir\Matrix.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Amar Jasarbasic\workspace\NN\Matrix.cpp" > CMakeFiles\NN.dir\Matrix.cpp.i
 
 CMakeFiles/NN.dir/Matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/NN.dir/Matrix.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\amar\Documents\workspace\NN\Matrix.cpp -o CMakeFiles\NN.dir\Matrix.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Amar Jasarbasic\workspace\NN\Matrix.cpp" -o CMakeFiles\NN.dir\Matrix.cpp.s
 
 CMakeFiles/NN.dir/Matrix.cpp.obj.requires:
 
@@ -118,7 +118,7 @@ NN.exe: CMakeFiles/NN.dir/build.make
 NN.exe: CMakeFiles/NN.dir/linklibs.rsp
 NN.exe: CMakeFiles/NN.dir/objects1.rsp
 NN.exe: CMakeFiles/NN.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\amar\Documents\workspace\NN\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable NN.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Amar Jasarbasic\workspace\NN\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable NN.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\NN.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -136,6 +136,6 @@ CMakeFiles/NN.dir/clean:
 .PHONY : CMakeFiles/NN.dir/clean
 
 CMakeFiles/NN.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\amar\Documents\workspace\NN C:\Users\amar\Documents\workspace\NN C:\Users\amar\Documents\workspace\NN\cmake-build-debug C:\Users\amar\Documents\workspace\NN\cmake-build-debug C:\Users\amar\Documents\workspace\NN\cmake-build-debug\CMakeFiles\NN.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Amar Jasarbasic\workspace\NN" "C:\Users\Amar Jasarbasic\workspace\NN" "C:\Users\Amar Jasarbasic\workspace\NN\cmake-build-debug" "C:\Users\Amar Jasarbasic\workspace\NN\cmake-build-debug" "C:\Users\Amar Jasarbasic\workspace\NN\cmake-build-debug\CMakeFiles\NN.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/NN.dir/depend
 

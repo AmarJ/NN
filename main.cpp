@@ -25,7 +25,7 @@ double sigmoid(double x)
     return 1/(1+exp(-x));
 }
 
-double sigmoidPrime(double x)
+double sigmoidePrime(double x)
 {
     return exp(-x)/(pow(1+exp(-x), 2));
 }
@@ -58,10 +58,10 @@ void learn(vector<double> expectedOutput)
 {
     Y2 = Matrix({expectedOutput});
 
-    gradient_B2 = Y.subtract(Y2).multiply(H.dot(W2).add(B2).applyFunction(sigmoidPrime));
-    gradient_B1 = gradient_B2.dot(W2.transpose().multiply(X.dot(W1).add(B1).applyFunction(sigmoidPrime)));
+    gradient_B2 = Y.subtract(Y2).multiply(H.dot(W2).add(B2).applyFunction(sigmoidePrime));
+    gradient_B1 = gradient_B2.dot(W2.transpose()).multiply(X.dot(W1).add(B1).applyFunction(sigmoidePrime));
     gradient_W2 = H.transpose().dot(gradient_B2);
-    gradient_W1 = H.transpose().dot(gradient_B1);
+    gradient_W1 = X.transpose().dot(gradient_B1);
 
     W1 = W1.subtract(gradient_W1.multiply(learningRate));
     W2 = W2.subtract(gradient_W2.multiply(learningRate));
@@ -76,6 +76,7 @@ void loadTraining(const char *filename, vector<vector<double> > &input, vector<v
     output.resize(trainingSize);
 
     ifstream file(filename);
+
     if(file)
     {
         string line;
@@ -83,6 +84,7 @@ void loadTraining(const char *filename, vector<vector<double> > &input, vector<v
 
         for (int i=0 ; i<trainingSize ; i++) {
             for (int h=0 ; h<32 ; h++) {
+                //cout << "Amar:" << line << endl;
                 getline(file, line);
                 for (int w=0 ; w<32 ; w++) {
                     input[i].push_back(atoi(line.substr(w,1).c_str()));
@@ -110,7 +112,7 @@ double stepFunction(double x)
 
 int main(int argc, char *argv[])
 {
-    srand (time(NULL));
+    srand(time(NULL));
 
     double learningRate = 0.7;
     int trainingIterations = 30;
@@ -118,7 +120,7 @@ int main(int argc, char *argv[])
     vector<vector<double>> inputVector;
     vector<vector<double>> outputVector;
 
-    loadTraining("data/training.data", inputVector, outputVector);
+    loadTraining("C:/Users/Amar Jasarbasic/workspace/NN/training", inputVector, outputVector);
 
     init(1024, 15, 10, learningRate);
 

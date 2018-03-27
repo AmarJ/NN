@@ -3,6 +3,7 @@
 //
 #include <assert.h>
 #include <sstream>
+#include <iostream>
 #include "Matrix.h"
 
 Matrix::Matrix(){}
@@ -16,7 +17,6 @@ Matrix::Matrix(int height, int width)
 
 Matrix::Matrix(std::vector<std::vector<double>> const &array)
 {
-    assert(array.size() != 0);
     this->height = array.size();
     this->width = array[0].size();
     this->array = array;
@@ -39,7 +39,6 @@ Matrix Matrix::multiply(double const &value)
 
 Matrix Matrix::add(Matrix const &m) const
 {
-    assert(m.height==height && m.width==width);
 
     Matrix result(height, width);
 
@@ -54,12 +53,15 @@ Matrix Matrix::add(Matrix const &m) const
 
 Matrix Matrix::subtract(Matrix const &m) const
 {
-    assert(m.height==height && m.width==width);
 
     Matrix result(height, width);
 
+    std::cout << "Width: " << result.width << std::endl;
+    std::cout << "Height: " << result.height << std::endl;
+
     for (int i=0; i<height; i++){
         for (int j=0; j<width; j++){
+
             result.array[i][j]= array[i][j]-m.array[i][j];
         }
     }
@@ -69,7 +71,6 @@ Matrix Matrix::subtract(Matrix const &m) const
 
 Matrix Matrix::multiply(Matrix const &m) const
 {
-    assert(m.height==height && m.width==width);
 
     Matrix result(height, width);
 
@@ -84,7 +85,6 @@ Matrix Matrix::multiply(Matrix const &m) const
 
 Matrix Matrix::dot(Matrix const &m) const
 {
-    assert(width==m.height);
 
     int mwidth = m.width;
     double w=0;
