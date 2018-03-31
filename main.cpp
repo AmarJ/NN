@@ -69,11 +69,13 @@ void learn(vector<double> expectedOutput)
     B2 = B2.subtract(gradient_B2.multiply(learningRate));
 }
 
-void loadTraining(const char *filename, vector<vector<double> > &input, vector<vector<double> > &output)
+void loadTraining(vector<vector<double> > &input, vector<vector<double> > &output)
 {
     int trainingSize = 946;
     input.resize(trainingSize);
     output.resize(trainingSize);
+
+    char *filename = "C:/Users/Amar Jasarbasic/workspace/NN/trainingData";
 
     ifstream file(filename);
 
@@ -84,9 +86,9 @@ void loadTraining(const char *filename, vector<vector<double> > &input, vector<v
 
         for (int i=0 ; i<trainingSize ; i++) {
             for (int h=0 ; h<32 ; h++) {
-                //cout << "Amar:" << line << endl;
                 getline(file, line);
                 for (int w=0 ; w<32 ; w++) {
+                    cout << "Amar [" << w << "]:" << line.substr(w,1).c_str() << endl;
                     input[i].push_back(atoi(line.substr(w,1).c_str()));
                 }
             }
@@ -120,7 +122,7 @@ int main(int argc, char *argv[])
     vector<vector<double>> inputVector;
     vector<vector<double>> outputVector;
 
-    loadTraining("C:/Users/Amar Jasarbasic/workspace/NN/training", inputVector, outputVector);
+    loadTraining(inputVector, outputVector);
 
     init(1024, 15, 10, learningRate);
 
