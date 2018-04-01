@@ -51,6 +51,9 @@ Matrix computeOutput(vector<double> input)
     X = Matrix({input});
     H = X.dot(W1).add(B1).applyFunction(sigmoid);
     Y = X.dot(W2).add(B2).applyFunction(sigmoid);
+
+
+
     return Y;
 }
 
@@ -75,7 +78,8 @@ void loadTraining(vector<vector<double> > &input, vector<vector<double> > &outpu
     input.resize(trainingSize);
     output.resize(trainingSize);
 
-    char *filename = "C:/Users/Amar Jasarbasic/workspace/NN/trainingData";
+    char *filename = (char*)"/Users/amarjasarbasic/Cprojects/NN/trainingData";
+    //char *filename = "C:/Users/Amar Jasarbasic/workspace/NN/trainingData";
 
     ifstream file(filename);
 
@@ -88,7 +92,6 @@ void loadTraining(vector<vector<double> > &input, vector<vector<double> > &outpu
             for (int h=0 ; h<32 ; h++) {
                 getline(file, line);
                 for (int w=0 ; w<32 ; w++) {
-                    cout << "Amar [" << w << "]:" << line.substr(w,1).c_str() << endl;
                     input[i].push_back(atoi(line.substr(w,1).c_str()));
                 }
             }

@@ -6,16 +6,18 @@
 #include <iostream>
 #include "Matrix.h"
 
+using namespace std;
+
 Matrix::Matrix(){}
 
 Matrix::Matrix(int height, int width)
 {
     this->height = height;
     this->width = width;
-    this->array = std::vector<std::vector<double>> (height, std::vector<double>(width));
+    this->array = vector<vector<double>> (height, vector<double>(width));
 }
 
-Matrix::Matrix(std::vector<std::vector<double>> const &array)
+Matrix::Matrix(vector<vector<double>> const &array)
 {
     this->height = array.size();
     this->width = array[0].size();
@@ -56,8 +58,8 @@ Matrix Matrix::subtract(Matrix const &m) const
 
     Matrix result(height, width);
 
-    std::cout << "Width: " << result.width << std::endl;
-    std::cout << "Height: " << result.height << std::endl;
+    cout << "Width: " << result.width << endl;
+    cout << "Height: " << result.height << endl;
 
     for (int i=0; i<height; i++){
         for (int j=0; j<width; j++){
@@ -128,11 +130,11 @@ Matrix Matrix::applyFunction(double (*function)(double)) const
     return result;
 }
 
-void Matrix::toString(std::ostream &flux) const
+void Matrix::toString(ostream &flux) const
 {
     int i,j;
-    int maxLength[width] = {};
-    std::stringstream ss;
+    int maxLength[width];//={};
+    stringstream ss;
 
     for (i=0 ; i<height ; i++)
     {
@@ -143,7 +145,7 @@ void Matrix::toString(std::ostream &flux) const
             {
                 maxLength[j] = ss.str().size();
             }
-            ss.str(std::string());
+            ss.str(string());
         }
     }
 
@@ -157,13 +159,13 @@ void Matrix::toString(std::ostream &flux) const
             {
                 flux << " ";
             }
-            ss.str(std::string());
+            ss.str(string());
         }
-        flux << std::endl;
+        flux << endl;
     }
 }
 
-std::ostream& operator<<(std::ostream &flux, Matrix const &m)
+ostream& operator<<(ostream &flux, Matrix const &m)
 {
     m.toString(flux);
     return flux;
